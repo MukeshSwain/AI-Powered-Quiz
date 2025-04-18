@@ -13,10 +13,39 @@ const app = express();
 connectDB();
 
 
+
+
+const allowedOrigins = ["https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app"];
+
+
 app.use(cors({
-  origin: "https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app",
-  credentials: true
+  origin: allowedOrigins[0], 
+  credentials: true, 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
+
+
+app.options("*", (req, res) => {
+  res.header("Access-Control-Allow-Origin", allowedOrigins[0]);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.sendStatus(204);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
