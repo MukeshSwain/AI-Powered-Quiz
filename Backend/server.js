@@ -29,7 +29,10 @@ app.use(
 );
 
 
-
+app.use((req, res, next) => {
+  console.log('Incoming request origin:', req.headers.origin);
+  next();
+});
 app.use(express.json());
 app.use(cookieParser());
 connectDB();
