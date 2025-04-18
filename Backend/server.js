@@ -14,7 +14,7 @@ connectDB();
 
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app",
   credentials: true
 }));
 app.use(cookieParser());
