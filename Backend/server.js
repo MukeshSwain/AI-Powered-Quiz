@@ -22,7 +22,7 @@ const allowedOrigins = ["https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.v
 
 app.use(
   cors({
-    origin: allowedOrigins[1],
+    origin: allowedOrigins,
     credentials: true,
     
   })
