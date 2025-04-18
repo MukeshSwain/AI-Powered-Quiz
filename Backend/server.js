@@ -11,7 +11,7 @@ import quizRoute from "./routes/quizRoutes.js";
 
 const app = express();
 
-connectDB();
+
 
 
 
@@ -38,6 +38,7 @@ app.options("*", (req, res) => {
 
 app.use(express.json());
 app.use(cookieParser());
+connectDB();
 
 
 app.use((req, res, next) => {
