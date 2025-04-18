@@ -17,24 +17,17 @@ const app = express();
 
 
 
-const allowedOrigins = ["https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app", "http://localhost:3000"];
+const allowedOrigins = ["https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app","http://localhost:5173"];
 
 
-app.use(cors({
-  origin: allowedOrigins[0], 
-  credentials: true, 
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(
+  cors({
+    origin: allowedOrigins[1],
+    credentials: true,
+    
+  })
+);
 
-
-app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", allowedOrigins[0]);
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.sendStatus(204);
-});
 
 
 app.use(express.json());
@@ -53,4 +46,7 @@ app.get("/", (req, res) => {
 app.use("/api/user", userRoute);
 app.use("/api/quiz", quizRoute);
 
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
+})
 export default app
