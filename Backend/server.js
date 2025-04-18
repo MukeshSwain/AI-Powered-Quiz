@@ -19,7 +19,10 @@ const app = express();
 
 // const allowedOrigins = ["","http://localhost:5173"];
 
-
+app.use((req, res, next) => {
+  console.log('Incoming request origin:', req.headers.origin);
+  next();
+});
 app.use(
   cors({
     origin: "https://quizfrontend-swart.vercel.app",
@@ -29,10 +32,7 @@ app.use(
 );
 
 
-app.use((req, res, next) => {
-  console.log('Incoming request origin:', req.headers.origin);
-  next();
-});
+
 app.use(express.json());
 app.use(cookieParser());
 connectDB();
