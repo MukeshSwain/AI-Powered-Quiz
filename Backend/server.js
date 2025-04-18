@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import serverless from "serverless-http";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -17,7 +17,7 @@ const app = express();
 
 
 
-const allowedOrigins = ["https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app"];
+const allowedOrigins = ["https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app", "http://localhost:3000"];
 
 
 app.use(cors({
@@ -42,10 +42,7 @@ app.use(cookieParser());
 connectDB();
 
 
-app.use((req, res, next) => {
-  console.log("Cookies Received:", req.cookies);
-  next();
-});
+
 
 
 app.get("/", (req, res) => {
@@ -56,4 +53,4 @@ app.get("/", (req, res) => {
 app.use("/api/user", userRoute);
 app.use("/api/quiz", quizRoute);
 
-export const handler = serverless(app);
+export default app
