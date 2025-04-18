@@ -7,7 +7,7 @@ import { setUser } from "../redux/slices/authSlice";
 import { setQuizHistory } from "../redux/slices/quizSlice";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
-
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleLogout = async() => { 
     try {
-      const res =await axios.get("http://localhost:3000/api/user/logout", {
+      const res =await axios.get(`${baseUrl}/user/logout`, {
         withCredentials: true,
       });
       if (res.data.success) { 
