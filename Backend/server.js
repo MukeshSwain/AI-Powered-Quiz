@@ -5,6 +5,7 @@ import serverless from "serverless-http";
 import dotenv from "dotenv";
 dotenv.config();
 
+
 import { connectDB } from "./config/db.js";
 import userRoute from "./routes/authRoutes.js";
 import quizRoute from "./routes/quizRoutes.js";
