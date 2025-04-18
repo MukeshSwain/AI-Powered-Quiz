@@ -22,7 +22,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app",
+    origin: "https://quizfrontend-swart.vercel.app",
     credentials: true,
     
   })
