@@ -17,12 +17,12 @@ const app = express();
 
 
 
-const allowedOrigins = ["https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app","http://localhost:5173"];
+// const allowedOrigins = ["","http://localhost:5173"];
 
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "https://quizfrontend-7h2y6e1vm-mukesh-swains-projects.vercel.app",
     credentials: true,
     
   })
