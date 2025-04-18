@@ -35,20 +35,16 @@ app.options("*", (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+
+app.use((req, res, next) => {
+  console.log("Cookies Received:", req.cookies);
+  next();
+});
+
+
 app.get("/", (req, res) => {
   res.json({ message: "Server is running" });
 });
