@@ -13,7 +13,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-screen w-64 bg-gradient-to-b from-purple-900 via-indigo-900 to-purple-800 text-white p-6 shadow-lg flex flex-col">
+    <div className="hidden h-screen w-64 bg-gradient-to-b from-purple-900 via-indigo-900 to-purple-800 text-white p-6 shadow-lg md:flex flex-col">
       <h2 className="text-2xl font-bold mb-8 text-center tracking-wide">
         Quizzy
       </h2>
